@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoyWeb - Jasa Pembuatan Website Profesional</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* CSS Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #1f2937;
+        line-height: 1.6;
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      section {
+        padding: 80px 0;
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 600;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+      p {
+        color: #6b7280;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: #2563eb;
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+      }
+      .text-center {
+        text-align: center;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+        padding: 120px 0;
+        text-align: center;
+      }
+      .hero h1 {
+        margin-bottom: 20px;
+        color: #1f2937;
+      }
+      .hero p {
+        max-width: 700px;
+        margin: 0 auto 40px;
+        font-size: 1.1rem;
+      }
+      .hero .btn {
+        font-size: 1.1rem;
+        padding: 15px 40px;
+      }
+
+      /* Features Section */
+      .features {
+        background: #ffffff;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+      .feature-card {
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-10px);
+      }
+      .feature-icon {
+        font-size: 2.5rem;
+        color: #2563eb;
+        margin-bottom: 20px;
+      }
+      .feature-card h3 {
+        margin-bottom: 15px;
+      }
+
+      /* Portfolio Section */
+      .portfolio {
+        background: #f9fafb;
+      }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .portfolio-item {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .portfolio-item:hover {
+        transform: translateY(-10px);
+      }
+      .portfolio-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .portfolio-item .portfolio-info {
+        padding: 20px;
+        background: white;
+      }
+
+      /* Pricing Section */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .pricing-card {
+        background: white;
+        border-radius: 10px;
+        padding: 40px 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .pricing-card:hover {
+        transform: translateY(-10px);
+      }
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+      .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2563eb;
+        margin-bottom: 20px;
+      }
+      .price span {
+        font-size: 1rem;
+        color: #6b7280;
+      }
+      .pricing-features {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+      .pricing-features li {
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        background: #f9fafb;
+      }
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .testimonial-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      .testimonial-content {
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+      .testimonial-author img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+      }
+      .author-info h4 {
+        margin-bottom: 5px;
+      }
+      .author-info p {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+
+      /* About Section */
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .about-image {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* CTA Section */
+      .cta {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+      }
+      .cta h2 {
+        color: white;
+        margin-bottom: 20px;
+      }
+      .cta p {
+        color: #e5e7eb;
+        max-width: 700px;
+        margin: 0 auto 40px;
+      }
+      .cta .btn {
+        background: white;
+        color: #2563eb;
+        font-size: 1.1rem;
+        padding: 15px 40px;
+      }
+      .cta .btn:hover {
+        background: #f9fafb;
+        box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+      }
+
+      /* Footer */
+      footer {
+        background: #1f2937;
+        color: white;
+        padding: 60px 0 20px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .footer-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: white;
+      }
+      .footer-links h3 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+      .footer-links ul {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+      .footer-links a {
+        color: #d1d5db;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .footer-links a:hover {
+        color: white;
+      }
+      .social-links {
+        display: flex;
+        gap: 15px;
+      }
+      .social-links a {
+        color: white;
+        font-size: 1.2rem;
+      }
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #374151;
+        color: #9ca3af;
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate {
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        section {
+          padding: 60px 0;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+        .about {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 class="animate">Jasa Pembuatan Website Profesional</h1>
+        <p class="animate">
+          Buat website impian Anda dengan desain modern, performa optimal, dan
+          harga transparan. Mulai bisnis online Anda sekarang!
+        </p>
+        <a href="https://wa.me/6285298267303" class="btn animate"
+          >Pesan Sekarang</a
+        >
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>Mengapa Memilih RoyWeb?</h2>
+        <div class="features-grid">
+          <div class="feature-card animate">
+            <div class="feature-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Desain Modern</h3>
+            <p>
+              Desain elegan dan responsif yang membuat website Anda menonjol
+              dari kompetitor.
+            </p>
+          </div>
+          <div class="feature-card animate">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Proses Cepat</h3>
+            <p>
+              Website siap dalam 7-14 hari dengan proses pengerjaan yang
+              efisien.
+            </p>
+          </div>
+          <div class="feature-card animate">
+            <div class="feature-icon">
+              <i class="fas fa-tag"></i>
+            </div>
+            <h3>Harga Transparan</h3>
+            <p>
+              Tidak ada biaya tersembunyi, semua paket jelas fitur dan harganya.
+            </p>
+          </div>
+          <div class="feature-card animate">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>Support Gratis</h3>
+            <p>Bantuan teknis gratis selama 1 bulan setelah website selesai.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+      <div class="container">
+        <h2>Portofolio Kami</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item animate">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Website Restoran"
+            />
+            <div class="portfolio-info">
+              <h3>Website Restoran</h3>
+              <p>Desain modern dengan menu online dan sistem reservasi.</p>
+            </div>
+          </div>
+          <div class="portfolio-item animate">
+            <img
+              src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Website Toko Online"
+            />
+            <div class="portfolio-info">
+              <h3>Toko Online</h3>
+              <p>
+                E-commerce dengan sistem pembayaran lengkap dan manajemen
+                produk.
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item animate">
+            <img
+              src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Website Perusahaan"
+            />
+            <div class="portfolio-info">
+              <h3>Website Perusahaan</h3>
+              <p>
+                Profil perusahaan profesional dengan fitur kontak dan portfolio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+      <div class="container">
+        <h2>Paket Harga</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card animate">
+            <h3>Basic</h3>
+            <div class="price">Rp 500.000 <span>/ sekali bayar</span></div>
+            <ul class="pricing-features">
+              <li>5 Halaman Website</li>
+              <li>Desain Responsif</li>
+              <li>Domain & Hosting 1 Tahun</li>
+              <li>Optimasi SEO Dasar</li>
+              <li>Support 1 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285298267303" class="btn">Pilih Paket</a>
+          </div>
+          <div class="pricing-card animate">
+            <div style="position: relative">
+              <h3>Standard</h3>
+              <span
+                style="
+                  position: absolute;
+                  top: -15px;
+                  right: -15px;
+                  background: #2563eb;
+                  color: white;
+                  padding: 5px 10px;
+                  border-radius: 20px;
+                  font-size: 0.8rem;
+                "
+                >POPULER</span
+              >
+            </div>
+            <div class="price">Rp 1.000.000 <span>/ sekali bayar</span></div>
+            <ul class="pricing-features">
+              <li>10 Halaman Website</li>
+              <li>Desain Custom</li>
+              <li>Domain & Hosting 1 Tahun</li>
+              <li>Optimasi SEO Medium</li>
+              <li>Form Kontak & Google Maps</li>
+              <li>Support 3 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285298267303" class="btn">Pilih Paket</a>
+          </div>
+          <div class="pricing-card animate">
+            <h3>Premium</h3>
+            <div class="price">Rp 1.500.000 <span>/ sekali bayar</span></div>
+            <ul class="pricing-features">
+              <li>Halaman Unlimited</li>
+              <li>Desain Premium Custom</li>
+              <li>Domain & Hosting 1 Tahun</li>
+              <li>Optimasi SEO Lengkap</li>
+              <li>Sistem Admin Panel</li>
+              <li>Integrasi Pembayaran</li>
+              <li>Support 6 Bulan</li>
+            </ul>
+            <a href="https://wa.me/6285298267303" class="btn">Pilih Paket</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <h2>Apa Kata Klien Kami?</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-card animate">
+            <div class="testimonial-content">
+              <p>
+                "Sangat puas dengan hasil website dari RoyWeb. Proses cepat,
+                desainnya modern, dan harganya terjangkau. Supportnya juga
+                sangat membantu!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://randomuser.me/api/portraits/women/43.jpg"
+                alt="Sarah Wijaya"
+              />
+              <div class="author-info">
+                <h4>Sarah Wijaya</h4>
+                <p>Pemilik Butik Sarah</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card animate">
+            <div class="testimonial-content">
+              <p>
+                "Website perusahaan kami jadi terlihat sangat profesional
+                setelah dibuat oleh RoyWeb. Mereka mengerti kebutuhan bisnis dan
+                memberikan solusi terbaik."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Budi Santoso"
+              />
+              <div class="author-info">
+                <h4>budi santoso</h4>
+                <p>Direktur CV. Maju Jaya</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="container">
+        <div class="about-content animate">
+          <h2>Tentang RoyWeb</h2>
+          <p>
+            RoyWeb adalah agensi pembuatan website profesional yang berfokus
+            pada solusi digital untuk UMKM dan perusahaan. kami telah membantu
+            ratusan klien membangun kehadiran online yang powerful.
+          </p>
+          <p>
+            Tim kami terdiri dari desainer, developer, dan digital marketer yang
+            berdedikasi untuk memberikan hasil terbaik. Kami percaya bahwa
+            setiap bisnis berhak memiliki website berkualitas dengan harga yang
+            terjangkau.
+          </p>
+          <a href="https://wa.me/6281234567890" class="btn"
+            >Konsultasi Gratis</a
+          >
+        </div>
+        <div class="about-image animate">
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Tim RoyWeb"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2 class="animate">Siap Membangun Website Impian Anda?</h2>
+        <p class="animate">
+          Hubungi kami sekarang dan dapatkan konsultasi gratis untuk proyek
+          website Anda. Jangan lewatkan kesempatan untuk mengembangkan bisnis
+          secara online!
+        </p>
+        <a href="https://wa.me/6285298267303" class="btn animate"
+          >Pesan Sekarang</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-logo">RoyWeb</div>
+            <p>
+              Jasa pembuatan website profesional dengan desain modern dan
+              performa optimal untuk bisnis Anda.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3>Layanan</h3>
+            <ul class="footer-links">
+              <li><a href="#">Pembuatan Website</a></li>
+              <li><a href="#">Website Toko Online</a></li>
+              <li><a href="#">Website Perusahaan</a></li>
+              <li><a href="#">Maintenance Website</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Perusahaan</h3>
+            <ul class="footer-links">
+              <li><a href="#">Tentang Kami</a></li>
+              <li><a href="#">Portofolio</a></li>
+              <li><a href="#">Testimoni</a></li>
+              <li><a href="#">Kontak</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Kontak</h3>
+            <ul class="footer-links">
+              <li><i class="fas fa-phone"></i> 085298267303</li>
+              <li><i class="fas fa-envelope"></i> roy.rangga04@gmail.com</li>
+              <li><i class="fas fa-map-marker-alt"></i> Grobogan, Indonesia</li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 RoyWeb. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript for Animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const animateElements = document.querySelectorAll(".animate");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+          }
+        );
+
+        animateElements.forEach((element) => {
+          element.style.opacity = 0;
+          element.style.transform = "translateY(20px)";
+          element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(element);
+        });
+      });
+    </script>
+  </body>
+</html>
